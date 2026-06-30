@@ -5,6 +5,7 @@ import { Stage, Layer, Rect, Transformer } from "react-konva";
 import type Konva from "konva";
 import { useEditor } from "@/lib/store";
 import { getDraft, saveDraft } from "@/lib/storage";
+import { track } from "@/lib/analytics";
 import { STAGE_WIDTH, STAGE_HEIGHT, type AltarDesign } from "@/lib/types";
 import { BACKGROUNDS } from "@/lib/altarConfig";
 import { CanvasItem } from "./CanvasItem";
@@ -178,6 +179,7 @@ export default function AltarEditor() {
       link.download = "ban-tho-cua-toi.png";
       link.href = uri;
       link.click();
+      track("tai_png");
     });
   };
 
@@ -190,6 +192,7 @@ export default function AltarEditor() {
     } catch {
       window.prompt("Sao chép liên kết chia sẻ:", url);
     }
+    track("chia_se");
   };
 
   return (

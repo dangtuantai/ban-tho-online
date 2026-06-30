@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { useEditor } from "@/lib/store";
 import { ITEM_SPEC_MAP } from "@/lib/altarConfig";
+import { track } from "@/lib/analytics";
 
 /** Bảng thuộc tính của vật phẩm đang chọn (gồm tải ảnh cho ảnh thờ). */
 export function PhotoFrame() {
@@ -34,6 +35,7 @@ export function PhotoFrame() {
     const reader = new FileReader();
     reader.onload = () => updateItem(selected.id, { photo: String(reader.result) });
     reader.readAsDataURL(file);
+    track("tai_anh_tho");
   };
 
   return (

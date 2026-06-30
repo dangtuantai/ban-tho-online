@@ -14,6 +14,7 @@ import {
   defaultSrc,
   DEFAULT_BURN_SECONDS,
 } from "./altarConfig";
+import { track } from "./analytics";
 
 type Snapshot = { items: AltarItem[]; background: string };
 
@@ -86,6 +87,7 @@ export const useEditor = create<EditorState>((set, get) => ({
       items: [...s.items, item],
       selectedId: item.id,
     });
+    track("them_vat_pham", { loai: type });
   },
 
   updateItem: (id, patch, record = true) => {
