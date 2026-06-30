@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Đóng gói gọn để chạy trong container (Fly.io / Docker).
+  output: "standalone",
 };
 
 export default nextConfig;

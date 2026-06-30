@@ -1,0 +1,40 @@
+<svg viewBox="0 0 70 132" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hact-brass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9c558"/>
+      <stop offset="0.5" stop-color="#c89b2f"/>
+      <stop offset="1" stop-color="#8a6508"/>
+    </linearGradient>
+    <linearGradient id="hact-white" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dfe6ee"/>
+    </linearGradient>
+  </defs>
+  <!-- rùa (đế) -->
+  <ellipse cx="35" cy="120" rx="22" ry="9" fill="url(#hact-brass)" stroke="#5a3a10" stroke-width="1.8"/>
+  <path d="M20 119 q15 -10 30 0" fill="none" stroke="#7a5408" stroke-width="1.4"/>
+  <path d="M28 113 v12 M35 112 v14 M42 113 v12" stroke="#7a5408" stroke-width="1.2"/>
+  <ellipse cx="56" cy="117" rx="5" ry="3.4" fill="url(#hact-brass)" stroke="#5a3a10" stroke-width="1.2"/>
+  <!-- chân hạc -->
+  <g stroke="#caa11a" stroke-width="3">
+    <line x1="31" y1="112" x2="32" y2="86"/>
+    <line x1="39" y1="112" x2="38" y2="86"/>
+  </g>
+  <!-- đuôi -->
+  <path d="M24 78 Q8 80 4 92 Q16 86 26 86 Z" fill="#cfd8e2" stroke="#9aa6b4" stroke-width="1.4"/>
+  <!-- thân trắng -->
+  <ellipse cx="36" cy="78" rx="15" ry="11" fill="url(#hact-white)" stroke="#9aa6b4" stroke-width="1.8"/>
+  <path d="M28 72 Q38 70 46 78" fill="none" stroke="#b9c4d2" stroke-width="1.5"/>
+  <!-- cổ trắng chữ S -->
+  <path d="M44 72 C 54 60 40 46 46 30" fill="none" stroke="url(#hact-white)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M44 72 C 54 60 40 46 46 30" fill="none" stroke="#b9c4d2" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+  <!-- đầu -->
+  <circle cx="46" cy="26" r="5.5" fill="url(#hact-white)" stroke="#9aa6b4" stroke-width="1.4"/>
+  <!-- mào đỏ -->
+  <path d="M43 21 q3 -5 6 0 z" fill="#d12318"/>
+  <!-- mỏ ngậm sen -->
+  <path d="M50 25 L64 18 L52 29 Z" fill="#f2b705" stroke="#9a7211" stroke-width="1"/>
+  <circle cx="64" cy="17" r="4" fill="#e8569a"/>
+  <circle cx="61" cy="19" r="3" fill="#f2b705"/>
+  <circle cx="44" cy="25" r="1.3" fill="#3a2410"/>
+</svg>

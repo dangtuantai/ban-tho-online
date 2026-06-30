@@ -1,0 +1,20 @@
+<svg viewBox="0 0 70 130" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dv-brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8a6508"/>
+      <stop offset="0.5" stop-color="#e9c558"/>
+      <stop offset="1" stop-color="#8a6508"/>
+    </linearGradient>
+  </defs>
+  <!-- tim đèn dầu -->
+  <rect x="33.4" y="26" width="3.2" height="10" rx="1.4" fill="#3a2410"/>
+  <!-- bầu dầu -->
+  <path d="M22 60 Q35 44 48 60 Q52 84 35 88 Q18 84 22 60 Z" fill="url(#dv-brass)" stroke="#5a3a10" stroke-width="1.8"/>
+  <ellipse cx="35" cy="58" rx="9" ry="4" fill="#a87412" stroke="#5a3a10" stroke-width="1.2"/>
+  <!-- cổ đèn -->
+  <rect x="31" y="36" width="8" height="22" fill="url(#dv-brass)" stroke="#5a3a10" stroke-width="1.2"/>
+  <!-- chân -->
+  <rect x="30" y="88" width="10" height="14" fill="url(#dv-brass)"/>
+  <path d="M18 102 Q35 96 52 102 L48 116 L22 116 Z" fill="url(#dv-brass)" stroke="#5a3a10" stroke-width="1.6"/>
+  <ellipse cx="35" cy="116" rx="18" ry="4" fill="#a87412"/>
+</svg>

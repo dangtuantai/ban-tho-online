@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bàn Thờ Online
 
-## Getting Started
+Web **lập bàn thờ tưởng niệm online**: người dùng kéo–thả vật phẩm thờ cúng, tải ảnh người thân làm ảnh thờ, nhận gợi ý bài trí chuẩn phong tục — kèm hệ thống nội dung chuẩn SEO để kéo traffic (hướng tới kiếm tiền qua quảng cáo).
 
-First, run the development server:
+## Tính năng
+
+- 🖐️ **Công cụ kéo–thả** (Konva): thêm/di chuyển/xoay/phóng to/xoá vật phẩm, đổi nền bàn thờ.
+- 🖼️ **Ảnh thờ**: tải ảnh người thân, tự lồng khung + tên + năm sinh/mất.
+- 🧭 **Gợi ý phong tục**: Nam tả – Nữ hữu, vị trí bát hương, Đông bình – Tây quả.
+- 💾 **Lưu / Tải PNG / Chia sẻ link** (lưu trên trình duyệt; chia sẻ qua URL).
+- 🔎 **SEO**: metadata + canonical, Open Graph động, JSON-LD (Organization/Article/WebApplication), `sitemap.xml`, `robots.txt`, bài viết MDX.
+- 💰 **Ad-ready**: ô `AdSlot` reserve sẵn (không gây CLS) + chỗ nhúng AdSense/GA4 qua biến môi trường.
+
+## Công nghệ
+
+Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · react-konva · Zustand · next-mdx-remote.
+
+## Chạy dự án
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Cấu hình (tuỳ chọn)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Tạo `.env.local` từ `.env.example`:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Biến | Ý nghĩa |
+|------|---------|
+| `NEXT_PUBLIC_SITE_URL` | Domain thật (canonical, sitemap, OG) |
+| `NEXT_PUBLIC_ADSENSE_ID` | Bật Google AdSense (`ca-pub-...`) |
+| `NEXT_PUBLIC_GA_ID` | Bật Google Analytics 4 (`G-...`) |
 
-## Learn More
+Khi để trống AdSense/GA, site vẫn chạy bình thường; ô quảng cáo chỉ là placeholder.
 
-To learn more about Next.js, take a look at the following resources:
+## Cấu trúc
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/                 # routes (landing, /thiet-ke, /huong-dan, sitemap, robots, og image)
+components/editor/   # AltarEditor (Konva), thư viện, khung ảnh, toolbar, gợi ý
+components/marketing # Header, Footer
+components/ads/      # AdSlot
+lib/                 # site, seo, store (zustand), altarConfig, fengshui, content, types
+content/huong-dan/   # bài viết SEO (.mdx)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Thêm bài viết mới (SEO)
 
-## Deploy on Vercel
+Tạo file `content/huong-dan/<slug>.mdx` với frontmatter `title`, `description`, `date`, `keywords`. Bài sẽ tự xuất hiện ở `/huong-dan`, có trang riêng, JSON-LD và vào `sitemap.xml`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Hướng mở rộng
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Tài khoản người dùng + lưu thiết kế lên DB (Prisma/Postgres), upload ảnh lên object storage.
+- Trang tưởng niệm công khai có URL riêng (tốt cho SEO + chia sẻ).
+- Chế độ thương mại (giỏ hàng, đặt mua bàn thờ/vật phẩm) — đã chừa sẵn `app/api/`.
+
+> Lưu ý: artwork bàn thờ/vật phẩm hiện dùng emoji/màu làm placeholder — thay bằng hình minh hoạ thật để hoàn thiện giao diện.

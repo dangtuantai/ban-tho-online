@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbf7f0; /* nền giấy ấm */
+  --foreground: #2a1d12;
+  --primary: #8a1c1c; /* đỏ sơn son */
+  --primary-foreground: #fff7ed;
+  --gold: #b8860b; /* thếp vàng */
+  --muted: #f1e7d6;
+  --border: #e3d6bf;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-gold: var(--gold);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --font-sans: var(--font-be-vietnam), system-ui, sans-serif;
+  --font-serif: var(--font-noto-serif), Georgia, serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
+
+/* Animation thắp hương/nến nhẹ nhàng */
+@keyframes flame-flicker {
+  0%, 100% { transform: scale(1) translateY(0); opacity: 1; }
+  50% { transform: scale(1.08) translateY(-1px); opacity: 0.85; }
+}
+.flame-flicker { animation: flame-flicker 1.2s ease-in-out infinite; transform-origin: bottom center; }
+
+@keyframes smoke-rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  20% { opacity: 0.5; }
+  100% { transform: translateY(-40px) scale(1.6); opacity: 0; }
+}
+.smoke-rise { animation: smoke-rise 3s ease-out infinite; }
+
+/* Kiểu chữ cho nội dung bài viết MDX */
+.article-body { line-height: 1.8; color: var(--foreground); }
+.article-body h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 2rem 0 0.75rem;
+}
+.article-body h3 { font-size: 1.2rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+.article-body p { margin: 0.75rem 0; }
+.article-body ul, .article-body ol { margin: 0.75rem 0 0.75rem 1.25rem; }
+.article-body ul { list-style: disc; }
+.article-body ol { list-style: decimal; }
+.article-body li { margin: 0.35rem 0; }
+.article-body strong { color: var(--primary); }
+.article-body blockquote {
+  border-left: 4px solid var(--gold);
+  background: var(--muted);
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.article-body a { color: var(--primary); text-decoration: underline; }

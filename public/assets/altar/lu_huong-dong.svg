@@ -1,0 +1,22 @@
+<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lhd-brass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9a8f6a"/>
+      <stop offset="0.5" stop-color="#6f6b4a"/>
+      <stop offset="1" stop-color="#403d28"/>
+    </linearGradient>
+  </defs>
+  <path d="M60 26 q9 -9 0 -18 q-9 -9 0 -18" fill="none" stroke="#cfc4b0" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+  <circle cx="60" cy="26" r="7" fill="url(#lhd-brass)" stroke="#2a2818" stroke-width="1.6"/>
+  <path d="M36 40 Q60 18 84 40 Z" fill="url(#lhd-brass)" stroke="#2a2818" stroke-width="2"/>
+  <ellipse cx="60" cy="40" rx="24" ry="5" fill="#4a4730" stroke="#2a2818" stroke-width="1.4"/>
+  <path d="M30 54 q-14 0 -14 14 q0 8 8 8" fill="none" stroke="url(#lhd-brass)" stroke-width="6"/>
+  <path d="M90 54 q14 0 14 14 q0 8 -8 8" fill="none" stroke="url(#lhd-brass)" stroke-width="6"/>
+  <path d="M34 46 Q60 40 86 46 Q92 78 60 86 Q28 78 34 46 Z" fill="url(#lhd-brass)" stroke="#2a2818" stroke-width="2"/>
+  <ellipse cx="60" cy="60" rx="16" ry="9" fill="none" stroke="#2f2c1c" stroke-width="2.5"/>
+  <g fill="url(#lhd-brass)" stroke="#2a2818" stroke-width="1.6">
+    <path d="M40 84 q-6 18 -12 30 q10 4 14 -6 q4 -12 4 -22 z"/>
+    <path d="M80 84 q6 18 12 30 q-10 4 -14 -6 q-4 -12 -4 -22 z"/>
+    <rect x="54" y="86" width="12" height="34" rx="4"/>
+  </g>
+</svg>

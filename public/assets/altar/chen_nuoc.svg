@@ -1,0 +1,32 @@
+<svg viewBox="0 0 120 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cup" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbfdff"/><stop offset="1" stop-color="#c9d8e8"/>
+    </linearGradient>
+    <linearGradient id="cup-tray" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9c558"/><stop offset="1" stop-color="#9a7211"/>
+    </linearGradient>
+  </defs>
+  <!-- khay -->
+  <rect x="8" y="44" width="104" height="14" rx="6" fill="url(#cup-tray)" stroke="#5a3a10" stroke-width="1.6"/>
+  <!-- 3 chén -->
+  <g stroke="#6f8094" stroke-width="1.6">
+    <path d="M22 24 h22 l-3 22 h-16 z" fill="url(#cup)"/>
+    <path d="M49 24 h22 l-3 22 h-16 z" fill="url(#cup)"/>
+    <path d="M76 24 h22 l-3 22 h-16 z" fill="url(#cup)"/>
+  </g>
+  <g fill="#bcd0e6">
+    <ellipse cx="33" cy="24" rx="11" ry="3.4"/>
+    <ellipse cx="60" cy="24" rx="11" ry="3.4"/>
+    <ellipse cx="87" cy="24" rx="11" ry="3.4"/>
+  </g>
+  <g fill="#7fa8d8">
+    <ellipse cx="33" cy="24" rx="8" ry="2.2"/>
+    <ellipse cx="60" cy="24" rx="8" ry="2.2"/>
+    <ellipse cx="87" cy="24" rx="8" ry="2.2"/>
+  </g>
+  <!-- viền xanh -->
+  <g stroke="#3a6bb0" stroke-width="1.6" fill="none">
+    <path d="M27 34 h12"/><path d="M54 34 h12"/><path d="M81 34 h12"/>
+  </g>
+</svg>

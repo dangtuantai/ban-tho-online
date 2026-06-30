@@ -1,0 +1,26 @@
+<svg viewBox="0 0 140 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tray" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9c558"/><stop offset="1" stop-color="#9a7211"/>
+    </linearGradient>
+  </defs>
+  <!-- nải chuối -->
+  <path d="M20 60 Q70 38 120 60 Q70 72 20 60 Z" fill="#cBd24a" stroke="#7e8a1e" stroke-width="2"/>
+  <g stroke="#7e8a1e" stroke-width="1.6" fill="none">
+    <path d="M30 60 Q70 44 110 60"/><path d="M34 62 Q70 48 106 62"/>
+  </g>
+  <!-- bưởi giữa -->
+  <circle cx="70" cy="44" r="20" fill="#9ad36b" stroke="#5f9e3e" stroke-width="2"/>
+  <path d="M70 24 q3 -6 -2 -10" fill="none" stroke="#6b4a1e" stroke-width="2.5"/>
+  <!-- cam/quýt -->
+  <circle cx="44" cy="50" r="13" fill="#ffae34" stroke="#d6791a" stroke-width="2"/>
+  <circle cx="96" cy="50" r="13" fill="#ff9f2e" stroke="#d6791a" stroke-width="2"/>
+  <!-- táo / lựu -->
+  <circle cx="28" cy="56" r="11" fill="#e23b2e" stroke="#a31f17" stroke-width="2"/>
+  <circle cx="112" cy="56" r="11" fill="#e85a8a" stroke="#b33060" stroke-width="2"/>
+  <!-- mâm -->
+  <path d="M8 64 Q70 86 132 64 L126 78 Q70 96 14 78 Z" fill="url(#tray)" stroke="#5a3a10" stroke-width="2"/>
+  <ellipse cx="70" cy="64" rx="62" ry="10" fill="#f0d069" stroke="#5a3a10" stroke-width="2"/>
+  <ellipse cx="70" cy="64" rx="54" ry="6" fill="#bd8e1f" opacity="0.5"/>
+  <rect x="56" y="90" width="28" height="7" rx="3" fill="url(#tray)" stroke="#5a3a10" stroke-width="1.5"/>
+</svg>
