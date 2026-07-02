@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { useEditor } from "@/lib/store";
 import { ITEM_SPEC_MAP } from "@/lib/altarConfig";
+import { fileToDataUrl, removeBackground } from "@/lib/image";
 import { track } from "@/lib/analytics";
 
 /** Bảng thuộc tính của vật phẩm đang chọn (gồm tải ảnh cho ảnh thờ). */
@@ -27,7 +28,10 @@ export function PhotoFrame() {
   }
 
   const spec = ITEM_SPEC_MAP[selected.type];
-  const currentSrc = selected.src ?? spec.variants[0].src;
+  const currentSrc =
+    selected.type === "tuy_chinh" && selected.photo
+      ? selected.photo
+      : selected.src ?? spec.variants[0].src;
 
   const onPickPhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -162,6 +166,53 @@ export function PhotoFrame() {
           <p className="text-[11px] text-foreground/50">
             Nhang cháy dần, toả khói. Hết giờ sẽ tự thắp lại (nếu bật) hoặc tàn,
             bát hương vẫn ở lại.
+          </p>
+        </div>
+      )}
+
+      {selected.type === "tuy_chinh" && (
+        <div className="space-y-2">
+          <button
+            onClick={() => fileRef.current?.click()}
+            className="w-full rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
+          >
+            {selected.photo ? "🖼️ Đổi ảnh khác" : "📷 Tải ảnh PNG lên"}
+          </button>
+          <input
+            ref={fileRef}
+            type="file"
+            accept="image/png,image/webp,image/jpeg"
+            className="hidden"
+            onChange={async (e) => {
+              const file = e.target.files?.[0];
+              e.target.value = "";
+              if (!file) return;
+              try {
+                const raw = await fileToDataUrl(file);
+                // Ảnh chưa có vùng trong suốt -> tự tách nền trắng/caro
+                const photo = await removeBackground(raw, { onlyIfOpaque: true });
+                updateItem(selected.id, { photo });
+                track("tai_anh_vat_pham");
+              } catch {
+                alert("Không đọc được file ảnh. Vui lòng chọn file PNG/JPG hợp lệ.");
+              }
+            }}
+          />
+          {selected.photo && (
+            <button
+              onClick={async () => {
+                const cleaned = await removeBackground(selected.photo as string);
+                updateItem(selected.id, { photo: cleaned });
+                track("xoa_nen_anh");
+              }}
+              className="w-full rounded-md border border-border bg-white px-3 py-2 text-sm font-medium hover:bg-muted"
+            >
+              🪄 Xoá nền trắng / caro
+            </button>
+          )}
+          <p className="text-[11px] text-foreground/50">
+            Ảnh chưa tách nền sẽ được tự xoá nền khi tải lên. Kết quả chưa ưng?
+            Bấm ↩ Hoàn tác trên thanh công cụ.
           </p>
         </div>
       )}

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600">
+  <defs>
+    <linearGradient id="wallD" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a0f08"/>
+      <stop offset="1" stop-color="#1c0502"/>
+    </linearGradient>
+    <linearGradient id="rem" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a52818"/>
+      <stop offset="1" stop-color="#6e150a"/>
+    </linearGradient>
+    <linearGradient id="remSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8e2012"/>
+      <stop offset=".5" stop-color="#b02c1a"/>
+      <stop offset="1" stop-color="#5e1108"/>
+    </linearGradient>
+    <linearGradient id="shelfW" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a2410"/>
+      <stop offset="1" stop-color="#271104"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="600" fill="url(#wallD)"/>
+  <!-- vầng sáng ấm giữa tường -->
+  <ellipse cx="480" cy="240" rx="430" ry="230" fill="#ff9a3c" opacity=".06"/>
+
+  <!-- rèm hai bên -->
+  <g fill="url(#remSide)" stroke="#4d0d05" stroke-width="2">
+    <path d="M0 0 h110 q-26 160 4 300 q22 110 -34 300 h-80 z"/>
+    <path d="M960 0 h-110 q26 160 -4 300 q-22 110 34 300 h80 z"/>
+  </g>
+  <!-- nếp gấp rèm -->
+  <g stroke="#4d0d05" stroke-width="2.5" fill="none" opacity=".55">
+    <path d="M38 60 q-12 240 8 480"/>
+    <path d="M72 50 q-16 250 0 500"/>
+    <path d="M922 60 q12 240 -8 480"/>
+    <path d="M888 50 q16 250 0 500"/>
+  </g>
+
+  <!-- diềm rèm phía trên (5 múi) -->
+  <path d="M0 0 H960 V46 Q864 116 768 46 Q672 116 576 46 Q480 116 384 46 Q288 116 192 46 Q96 116 0 46 Z"
+        fill="url(#rem)" stroke="#4d0d05" stroke-width="2"/>
+  <!-- viền tua vàng theo múi -->
+  <path d="M0 46 Q96 116 192 46 Q288 116 384 46 Q480 116 576 46 Q672 116 768 46 Q864 116 960 46"
+        fill="none" stroke="#e0b64a" stroke-width="5" stroke-linecap="round"/>
+  <!-- tua rua -->
+  <g fill="#e0b64a">
+    <circle cx="96" cy="83" r="6"/>
+    <circle cx="288" cy="83" r="6"/>
+    <circle cx="480" cy="83" r="6"/>
+    <circle cx="672" cy="83" r="6"/>
+    <circle cx="864" cy="83" r="6"/>
+  </g>
+
+  <!-- kệ gỗ -->
+  <rect y="456" width="960" height="12" fill="#6d4520"/>
+  <rect y="468" width="960" height="132" fill="url(#shelfW)"/>
+  <rect y="474" width="960" height="2" fill="#c99740" opacity=".22"/>
+  <path d="M0 520 q320 -10 640 0 t320 0" stroke="#000" stroke-width="8" opacity=".1" fill="none"/>
+</svg>

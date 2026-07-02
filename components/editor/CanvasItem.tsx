@@ -14,6 +14,7 @@ import {
 import Konva from "konva";
 import { ITEM_SPEC_MAP } from "@/lib/altarConfig";
 import type { AltarItem } from "@/lib/types";
+import { useImage } from "./useImage";
 
 /** Ngọn lửa cháy tự động (flicker) cho đèn/nến. */
 function Flame({ y }: { y: number }) {
@@ -167,24 +168,6 @@ function KonvaRim({ baseY }: { baseY: number }) {
   );
 }
 
-/** Nạp ảnh từ dataURL/URL thành HTMLImageElement cho Konva. */
-function useImage(src?: string) {
-  const [img, setImg] = useState<HTMLImageElement | null>(null);
-  useEffect(() => {
-    if (!src) {
-      setImg(null);
-      return;
-    }
-    const image = new window.Image();
-    image.crossOrigin = "anonymous";
-    image.src = src;
-    const onLoad = () => setImg(image);
-    image.addEventListener("load", onLoad);
-    return () => image.removeEventListener("load", onLoad);
-  }, [src]);
-  return img;
-}
-
 const FRAME_W = 130;
 const FRAME_H = 160;
 
@@ -197,9 +180,12 @@ type Props = {
 
 export function CanvasItem({ item, isSelected, onSelect, onChange }: Props) {
   const spec = ITEM_SPEC_MAP[item.type];
-  const photo = useImage(item.type === "anh_tho" ? item.photo : undefined);
+  const usesPhoto = item.type === "anh_tho" || item.type === "tuy_chinh";
+  const photo = useImage(usesPhoto ? item.photo : undefined);
   const image = useImage(
-    item.type === "anh_tho" ? undefined : item.src ?? spec.variants[0].src,
+    item.type === "anh_tho" || (item.type === "tuy_chinh" && item.photo)
+      ? undefined
+      : item.src ?? spec.variants[0].src,
   );
 
   const commonGroupProps: Partial<Konva.NodeConfig> = {
@@ -359,9 +345,15 @@ export function CanvasItem({ item, isSelected, onSelect, onChange }: Props) {
     );
   }
 
-  // Vật phẩm thường: ảnh minh hoạ SVG
+  // Vật phẩm thường: ảnh minh hoạ SVG.
+  // Riêng "tuy_chinh": vẽ ảnh PNG người dùng tải lên theo đúng tỉ lệ gốc
+  // (rộng chuẩn spec.w); thiếu ảnh (VD link chia sẻ) thì hiện icon placeholder.
+  const displayImage = item.type === "tuy_chinh" && photo ? photo : image;
   const w = spec.w;
-  const h = spec.h;
+  const h =
+    item.type === "tuy_chinh" && photo
+      ? (spec.w * photo.height) / photo.width
+      : spec.h;
   return (
     <Group
       {...commonGroupProps}
@@ -372,8 +364,8 @@ export function CanvasItem({ item, isSelected, onSelect, onChange }: Props) {
     >
       {/* vùng chạm trong suốt để dễ chọn cả khi ảnh chưa tải */}
       <Rect x={-w / 2} y={-h / 2} width={w} height={h} fill="transparent" />
-      {image ? (
-        <KonvaImage image={image} x={-w / 2} y={-h / 2} width={w} height={h} />
+      {displayImage ? (
+        <KonvaImage image={displayImage} x={-w / 2} y={-h / 2} width={w} height={h} />
       ) : (
         <Rect
           x={-w / 2}

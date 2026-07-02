@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Stage, Layer, Rect, Transformer } from "react-konva";
+import { Stage, Layer, Rect, Transformer, Image as KonvaImage } from "react-konva";
 import type Konva from "konva";
 import { useEditor } from "@/lib/store";
 import { getDraft, saveDraft } from "@/lib/storage";
@@ -9,6 +9,7 @@ import { track } from "@/lib/analytics";
 import { STAGE_WIDTH, STAGE_HEIGHT, type AltarDesign } from "@/lib/types";
 import { BACKGROUNDS } from "@/lib/altarConfig";
 import { CanvasItem } from "./CanvasItem";
+import { useImage } from "./useImage";
 import { ItemLibrary } from "./ItemLibrary";
 import { PhotoFrame } from "./PhotoFrame";
 import { FengShuiHints } from "./FengShuiHints";
@@ -168,6 +169,7 @@ export default function AltarEditor() {
   }, [selectedId, removeItem, select]);
 
   const bg = BACKGROUNDS.find((b) => b.id === background) ?? BACKGROUNDS[0];
+  const bgImage = useImage(bg.src);
 
   const handleExportPng = () => {
     select(null);
@@ -234,7 +236,7 @@ export default function AltarEditor() {
             }}
           >
             <Layer>
-              {/* nền bàn thờ */}
+              {/* nền bàn thờ: gradient dự phòng (vẽ cả lúc ảnh nền đang tải) */}
               <Rect
                 x={0}
                 y={0}
@@ -244,14 +246,25 @@ export default function AltarEditor() {
                 fillLinearGradientEndPoint={{ x: 0, y: STAGE_HEIGHT }}
                 fillLinearGradientColorStops={[0, bg.color1, 1, bg.color2]}
               />
-              {/* mặt bàn */}
-              <Rect
-                x={0}
-                y={STAGE_HEIGHT - 120}
-                width={STAGE_WIDTH}
-                height={120}
-                fill="rgba(0,0,0,0.18)"
-              />
+              {bg.src && bgImage ? (
+                // Ảnh nền toàn cảnh (đã vẽ sẵn kệ gỗ)
+                <KonvaImage
+                  image={bgImage}
+                  x={0}
+                  y={0}
+                  width={STAGE_WIDTH}
+                  height={STAGE_HEIGHT}
+                />
+              ) : (
+                // Nền trơn: vẽ mặt bàn tối
+                <Rect
+                  x={0}
+                  y={STAGE_HEIGHT - 120}
+                  width={STAGE_WIDTH}
+                  height={120}
+                  fill="rgba(0,0,0,0.18)"
+                />
+              )}
             </Layer>
             <Layer>
               {items.map((item) => (

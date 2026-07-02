@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a2513"/>
+      <stop offset=".55" stop-color="#641708"/>
+      <stop offset="1" stop-color="#420e04"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".32" r=".8">
+      <stop offset="0" stop-color="#ffdf9e" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#ffdf9e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shelfFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#57150a"/>
+      <stop offset="1" stop-color="#2b0902"/>
+    </linearGradient>
+    <linearGradient id="goldLip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0c25e"/>
+      <stop offset=".5" stop-color="#d9a441"/>
+      <stop offset="1" stop-color="#9c6f22"/>
+    </linearGradient>
+  </defs>
+
+  <!-- tường sơn son -->
+  <rect width="960" height="600" fill="url(#wall)"/>
+  <rect width="960" height="600" fill="url(#glow)"/>
+
+  <!-- khung thếp vàng kép -->
+  <rect x="26" y="26" width="908" height="424" rx="10" fill="none" stroke="#d9a441" stroke-width="7"/>
+  <rect x="42" y="42" width="876" height="392" rx="8" fill="none" stroke="#9c6f22" stroke-width="2.5"/>
+
+  <!-- hoa văn 4 góc -->
+  <g fill="none" stroke="#d9a441" stroke-width="3" stroke-linecap="round">
+    <path d="M62 100 q0 -38 38 -38"/>
+    <path d="M74 112 q0 -38 38 -38"/>
+    <path d="M898 100 q0 -38 -38 -38"/>
+    <path d="M886 112 q0 -38 -38 -38"/>
+    <path d="M62 376 q0 38 38 38"/>
+    <path d="M74 364 q0 38 38 38"/>
+    <path d="M898 376 q0 38 -38 38"/>
+    <path d="M886 364 q0 38 -38 38"/>
+  </g>
+
+  <!-- điểm hoa văn giữa khung trên -->
+  <g fill="#d9a441">
+    <circle cx="480" cy="26" r="6"/>
+    <circle cx="440" cy="26" r="3"/>
+    <circle cx="520" cy="26" r="3"/>
+  </g>
+
+  <!-- kệ gỗ: mép thếp vàng + mặt kệ sơn son đậm -->
+  <rect y="452" width="960" height="12" fill="url(#goldLip)"/>
+  <rect y="464" width="960" height="6" fill="#7a4d14"/>
+  <rect y="470" width="960" height="130" fill="url(#shelfFace)"/>
+  <!-- chỉ vàng chạy ngang mặt kệ -->
+  <rect y="478" width="960" height="2" fill="#c99740" opacity=".35"/>
+  <rect y="560" width="960" height="2" fill="#c99740" opacity=".18"/>
+  <!-- vân bóng nhẹ trên mặt kệ -->
+  <path d="M0 505 q240 -12 480 0 t480 0" stroke="#000" stroke-width="10" opacity=".08" fill="none"/>
+</svg>

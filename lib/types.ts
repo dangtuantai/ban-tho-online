@@ -12,7 +12,8 @@ export type ItemType =
   | "ong_huong"
   | "lu_huong"
   | "doi_hac"
-  | "nhang";
+  | "nhang"
+  | "tuy_chinh";
 
 export type Gender = "nam" | "nu";
 
@@ -26,8 +27,8 @@ export type AltarItem = {
   rotation: number;
   /** Biến thể ảnh được chọn (đường dẫn src). Bỏ trống -> dùng biến thể đầu. */
   src?: string;
-  // Dành cho ảnh thờ:
-  photo?: string; // dataURL ảnh người thân
+  // Dành cho ảnh thờ & ảnh tuỳ chỉnh (tuy_chinh):
+  photo?: string; // dataURL ảnh người thân / ảnh PNG người dùng tải lên
   name?: string; // tên người mất
   dates?: string; // năm sinh - năm mất
   gender?: Gender; // phục vụ quy tắc Nam tả - Nữ hữu

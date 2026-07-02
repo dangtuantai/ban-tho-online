@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600">
+  <defs>
+    <linearGradient id="wallV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#54100e"/>
+      <stop offset="1" stop-color="#280505"/>
+    </linearGradient>
+    <pattern id="tho" width="160" height="160" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#d9a441" opacity=".16">
+        <circle cx="80" cy="80" r="46" stroke-width="2"/>
+        <circle cx="80" cy="80" r="32" stroke-width="1.4"/>
+        <path d="M56 80 h48 M80 56 v48" stroke-width="1.6"/>
+        <path d="M62 62 h36 v36 h-36 z" stroke-width="1.2"/>
+      </g>
+    </pattern>
+    <linearGradient id="shelfV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a1508"/>
+      <stop offset="1" stop-color="#250803"/>
+    </linearGradient>
+  </defs>
+
+  <!-- tường đỏ trầm phủ hoa văn chữ Thọ -->
+  <rect width="960" height="600" fill="url(#wallV)"/>
+  <rect width="960" height="460" fill="url(#tho)"/>
+  <ellipse cx="480" cy="230" rx="430" ry="230" fill="#ffcf7d" opacity=".05"/>
+
+  <!-- chỉ vàng trên/dưới mảng hoa văn -->
+  <rect y="18" width="960" height="3" fill="#d9a441" opacity=".5"/>
+  <rect y="26" width="960" height="1.5" fill="#d9a441" opacity=".3"/>
+
+  <!-- kệ gỗ -->
+  <rect y="452" width="960" height="12" fill="#8a5c1a"/>
+  <rect y="464" width="960" height="136" fill="url(#shelfV)"/>
+  <rect y="470" width="960" height="2" fill="#d9a441" opacity=".3"/>
+  <rect y="565" width="960" height="2" fill="#d9a441" opacity=".15"/>
+  <path d="M0 510 q320 -12 640 0 t320 0" stroke="#000" stroke-width="9" opacity=".1" fill="none"/>
+</svg>

@@ -21,7 +21,11 @@ export function ItemLibrary() {
             key={spec.type}
             onClick={() => addItem(spec.type)}
             title={spec.meaning}
-            className="flex flex-col items-center gap-1 rounded-lg border border-border bg-white/60 p-3 text-center transition-colors hover:border-primary hover:bg-muted"
+            className={`flex flex-col items-center gap-1 rounded-lg border p-3 text-center transition-colors hover:border-primary hover:bg-muted ${
+              spec.isCustom
+                ? "border-dashed border-primary/50 bg-primary/5"
+                : "border-border bg-white/60"
+            }`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -40,6 +44,10 @@ export function ItemLibrary() {
           </button>
         ))}
       </div>
+      <p className="mt-2 text-[11px] text-foreground/40">
+        💡 &ldquo;Ảnh của bạn&rdquo;: thêm vào rồi bấm &ldquo;Tải ảnh PNG&rdquo;
+        ở bảng bên phải. Dùng PNG nền trong suốt để hoà vào bàn thờ đẹp nhất.
+      </p>
     </div>
   );
 }

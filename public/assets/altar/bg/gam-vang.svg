@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600">
+  <defs>
+    <linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a671b"/>
+      <stop offset="1" stop-color="#4a3608"/>
+    </linearGradient>
+    <pattern id="gam" width="80" height="80" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#ffe08a" opacity=".22">
+        <path d="M40 0 L80 40 L40 80 L0 40 Z" stroke-width="1.6"/>
+        <path d="M40 16 L64 40 L40 64 L16 40 Z" stroke-width="1"/>
+      </g>
+      <circle cx="40" cy="40" r="3" fill="#ffe08a" opacity=".28"/>
+      <circle cx="0" cy="0" r="2" fill="#ffe08a" opacity=".2"/>
+      <circle cx="80" cy="0" r="2" fill="#ffe08a" opacity=".2"/>
+      <circle cx="0" cy="80" r="2" fill="#ffe08a" opacity=".2"/>
+      <circle cx="80" cy="80" r="2" fill="#ffe08a" opacity=".2"/>
+    </pattern>
+    <linearGradient id="shelfGa" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a2c0c"/>
+      <stop offset="1" stop-color="#291704"/>
+    </linearGradient>
+  </defs>
+
+  <!-- tường gấm vàng -->
+  <rect width="960" height="600" fill="url(#wallG)"/>
+  <rect width="960" height="456" fill="url(#gam)"/>
+  <ellipse cx="480" cy="220" rx="450" ry="240" fill="#fff2c4" opacity=".07"/>
+
+  <!-- kệ gỗ nâu đậm tương phản -->
+  <rect y="452" width="960" height="14" fill="#6d4520"/>
+  <line x1="0" y1="452" x2="960" y2="452" stroke="#2a1503" stroke-width="2" opacity=".5"/>
+  <rect y="466" width="960" height="134" fill="url(#shelfGa)"/>
+  <rect y="473" width="960" height="2" fill="#ffe08a" opacity=".25"/>
+  <path d="M0 520 q240 -8 480 0 t480 0" stroke="#000" stroke-width="8" opacity=".1" fill="none"/>
+</svg>

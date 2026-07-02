@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600">
+  <defs>
+    <linearGradient id="wallT" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2e1a0c"/>
+      <stop offset="1" stop-color="#150902"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a220f"/>
+      <stop offset="1" stop-color="#241205"/>
+    </linearGradient>
+    <linearGradient id="shelfT" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#42260f"/>
+      <stop offset="1" stop-color="#1f0f03"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="600" fill="url(#wallT)"/>
+  <ellipse cx="480" cy="210" rx="440" ry="230" fill="#ffb45e" opacity=".05"/>
+
+  <!-- ba ô khắc gỗ -->
+  <g>
+    <rect x="70" y="70" width="240" height="310" rx="8" fill="url(#panel)" stroke="#5f3a15" stroke-width="3"/>
+    <rect x="86" y="86" width="208" height="278" rx="6" fill="none" stroke="#7a4d1e" stroke-width="1.6" opacity=".7"/>
+    <rect x="360" y="52" width="240" height="346" rx="8" fill="url(#panel)" stroke="#5f3a15" stroke-width="3"/>
+    <rect x="376" y="68" width="208" height="314" rx="6" fill="none" stroke="#7a4d1e" stroke-width="1.6" opacity=".7"/>
+    <rect x="650" y="70" width="240" height="310" rx="8" fill="url(#panel)" stroke="#5f3a15" stroke-width="3"/>
+    <rect x="666" y="86" width="208" height="278" rx="6" fill="none" stroke="#7a4d1e" stroke-width="1.6" opacity=".7"/>
+  </g>
+  <!-- hoạ tiết thoi trong từng ô -->
+  <g fill="none" stroke="#7a4d1e" stroke-width="1.4" opacity=".45">
+    <path d="M190 140 l46 76 -46 76 -46 -76 z"/>
+    <path d="M480 130 l52 86 -52 86 -52 -86 z"/>
+    <path d="M770 140 l46 76 -46 76 -46 -76 z"/>
+  </g>
+
+  <!-- kệ gỗ -->
+  <rect y="452" width="960" height="14" fill="#5f3a15"/>
+  <rect y="466" width="960" height="6" fill="#33200a"/>
+  <rect y="472" width="960" height="128" fill="url(#shelfT)"/>
+  <rect y="480" width="960" height="2" fill="#c99740" opacity=".16"/>
+  <path d="M0 515 q240 -10 480 0 t480 0" stroke="#000" stroke-width="9" opacity=".12" fill="none"/>
+</svg>

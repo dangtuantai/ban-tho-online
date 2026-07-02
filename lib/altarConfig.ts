@@ -15,6 +15,8 @@ export type ItemSpec = {
   isPhoto?: boolean;
   /** Là cây đèn/nến -> hiển thị hiệu ứng lửa cháy tự động. */
   isCandle?: boolean;
+  /** Ảnh PNG do người dùng tự tải lên -> nút thư viện mở hộp chọn file. */
+  isCustom?: boolean;
 };
 
 const A = "/assets/altar";
@@ -135,6 +137,16 @@ export const ITEM_SPECS: ItemSpec[] = [
     meaning:
       "Ba cây nhang thắp cháy theo thời gian, toả khói; cháy hết sẽ tự tan.",
   },
+  {
+    type: "tuy_chinh",
+    name: "Ảnh của bạn (PNG)",
+    variants: [{ id: "png", name: "Ảnh tải lên", src: `${A}/tuy_chinh.svg` }],
+    w: 120,
+    h: 120,
+    meaning:
+      "Tự tải ảnh PNG lên bàn thờ: hoa quả, bánh trái, món ăn cúng... Nên dùng PNG nền trong suốt.",
+    isCustom: true,
+  },
 ];
 
 /** Thời gian cháy mặc định của nhang (giây). */
@@ -149,11 +161,66 @@ export function defaultSrc(type: ItemType): string {
   return ITEM_SPEC_MAP[type].variants[0].src;
 }
 
-/** Các mẫu nền bàn thờ (placeholder bằng màu/gradient, thay artwork sau). */
-export const BACKGROUNDS = [
-  { id: "go-do", name: "Gỗ sơn son", color1: "#6b1d12", color2: "#411008" },
-  { id: "go-tu-nhien", name: "Gỗ tự nhiên", color1: "#8a5a2b", color2: "#5c3a18" },
-  { id: "vang-gam", name: "Vàng gấm", color1: "#7a5a12", color2: "#4a3608" },
+export type BackgroundSpec = {
+  id: string;
+  name: string;
+  /** Màu gradient dự phòng (vẽ trong lúc ảnh nền đang tải / nền trơn). */
+  color1: string;
+  color2: string;
+  /** Ảnh nền toàn cảnh (đã vẽ sẵn kệ gỗ). Bỏ trống -> gradient + mặt bàn. */
+  src?: string;
+};
+
+const BG = "/assets/altar/bg";
+
+/** Các mẫu nền bàn thờ. */
+export const BACKGROUNDS: BackgroundSpec[] = [
+  {
+    id: "son-son",
+    name: "Sơn son thếp vàng",
+    color1: "#7a1f10",
+    color2: "#420e04",
+    src: `${BG}/son-son.svg`,
+  },
+  {
+    id: "rem-do",
+    name: "Rèm đỏ trang nghiêm",
+    color1: "#3a0f08",
+    color2: "#1f0603",
+    src: `${BG}/rem-do.svg`,
+  },
+  {
+    id: "go-huong",
+    name: "Gỗ hương vân dọc",
+    color1: "#8a5a30",
+    color2: "#5a3517",
+    src: `${BG}/go-huong.svg`,
+  },
+  {
+    id: "go-tram",
+    name: "Gỗ trầm khắc ô",
+    color1: "#241208",
+    color2: "#140902",
+    src: `${BG}/go-tram.svg`,
+  },
+  {
+    id: "van-tho",
+    name: "Hoa văn chữ Thọ",
+    color1: "#4a0e0e",
+    color2: "#2a0606",
+    src: `${BG}/van-tho.svg`,
+  },
+  {
+    id: "gam-vang",
+    name: "Gấm vàng hoàng kim",
+    color1: "#7a5a12",
+    color2: "#4a3608",
+    src: `${BG}/gam-vang.svg`,
+  },
+  // Nền gradient trơn (giữ id cũ để bản lưu trước đây không mất nền).
+  { id: "go-do", name: "Gỗ sơn son (trơn)", color1: "#6b1d12", color2: "#411008" },
+  { id: "go-tu-nhien", name: "Gỗ tự nhiên (trơn)", color1: "#8a5a2b", color2: "#5c3a18" },
+  { id: "vang-gam", name: "Vàng gấm (trơn)", color1: "#7a5a12", color2: "#4a3608" },
 ];
 
 /**
